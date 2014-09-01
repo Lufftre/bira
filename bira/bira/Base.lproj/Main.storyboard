@@ -62,7 +62,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Mörk Lager"/>
                                 <connections>
-                                    <segue destination="fdP-tP-9GL" kind="show" id="IBT-MI-E63"/>
+                                    <action selector="mLager:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Ml-Fh-Wu5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -78,29 +78,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="720" y="6"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Ywx-7W-tp4">
-            <objects>
-                <viewController id="fdP-tP-9GL" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="n1o-ga-nAJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Kyw-iv-Chi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tt0-Yw-Ikf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
-                        <size key="portraitSize" width="320" height="568"/>
-                        <size key="landscapeSize" width="568" height="320"/>
-                    </simulatedScreenMetrics>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f7k-pX-3mr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1200" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Idv-lV-IZ5">
