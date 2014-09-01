@@ -397,6 +397,7 @@
 				9746BE9819B4929A0049C431 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9746BE9919B4929A0049C431 /* Build configuration list for PBXNativeTarget "biraTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +406,7 @@
 				9746BE9B19B4929A0049C431 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
