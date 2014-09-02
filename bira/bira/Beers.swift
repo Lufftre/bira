@@ -17,6 +17,7 @@ class Beers: UITableViewController, XMLParserDelegate{
     var parser = XMLParser(filePath: path)
     
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Mörk Lager"
@@ -37,14 +38,21 @@ class Beers: UITableViewController, XMLParserDelegate{
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-        cell.textLabel.text = parser.objects[indexPath.row]["Namn"]
-        cell.detailTextLabel.text = parser.objects[indexPath.row]["Varugrupp"]
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
+        cell.name.text = parser.objects[indexPath.row]["Namn"]
+        cell.name2.text = parser.objects[indexPath.row]["Namn2"]
+        if(cell.name2.text == nil){
+            cell.name2.text = parser.objects[indexPath.row]["Alkoholhalt"]
+        }else{
+            cell.name2.text = cell.name2.text +  ", " + parser.objects[indexPath.row]["Alkoholhalt"]!
+        }
+        cell.price.text = parser.objects[indexPath.row]["Prisinklmoms"]! + "kr"
         return cell
+        
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return 120
+        return 100
     }
     
 }

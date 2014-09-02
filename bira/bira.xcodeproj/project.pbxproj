@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0359E25419B5200400ACEBEE /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359E25319B5200400ACEBEE /* XMLParser.swift */; };
 		035CB46B19B5CD3000670789 /* Beers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CB46A19B5CD3000670789 /* Beers.swift */; };
+		035CB46F19B5D9D000670789 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CB46E19B5D9D000670789 /* ItemCell.swift */; };
 		9746BE8019B4929A0049C431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE7F19B4929A0049C431 /* AppDelegate.swift */; };
 		9746BE8219B4929A0049C431 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE8119B4929A0049C431 /* MainScreen.swift */; };
 		9746BE8519B4929A0049C431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9746BE8319B4929A0049C431 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		0359E25319B5200400ACEBEE /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		035CB46A19B5CD3000670789 /* Beers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beers.swift; sourceTree = "<group>"; };
+		035CB46E19B5D9D000670789 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		9746BE7A19B4929A0049C431 /* bira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bira.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9746BE7E19B4929A0049C431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9746BE7F19B4929A0049C431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				035CB46A19B5CD3000670789 /* Beers.swift */,
+				035CB46E19B5D9D000670789 /* ItemCell.swift */,
 				0359E25319B5200400ACEBEE /* XMLParser.swift */,
 				9746BE7F19B4929A0049C431 /* AppDelegate.swift */,
 				9746BE8119B4929A0049C431 /* MainScreen.swift */,
@@ -218,6 +221,7 @@
 				0359E25419B5200400ACEBEE /* XMLParser.swift in Sources */,
 				9746BE8219B4929A0049C431 /* MainScreen.swift in Sources */,
 				9746BE8019B4929A0049C431 /* AppDelegate.swift in Sources */,
+				035CB46F19B5D9D000670789 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
