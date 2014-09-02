@@ -14,9 +14,10 @@ class MainScreen: UIViewController {
     
     @IBOutlet weak var picture: UIImageView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var pic = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/toast-beer.jpg")
+        var pic = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bärs.jpg")
         picture.image = UIImage(data: pic)
         title = "BraBärs"
     }

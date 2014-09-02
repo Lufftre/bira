@@ -52,6 +52,16 @@
                                     <segue destination="Fhc-eb-l8f" kind="show" identifier="ljus" id="qVP-RG-yr4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLp-tD-DNY">
+                                <rect key="frame" x="84" y="455" width="153" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Flera Typer">
+                                    <color key="titleColor" red="0.95686274510000002" green="0.050859249910000001" blue="0.1592344611" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Fhc-eb-l8f" kind="show" identifier="flera" id="65x-ll-Ugo"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esh-D1-PAM">
                                 <rect key="frame" x="84" y="289" width="153" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -89,24 +99,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bärs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zv-MY-F3M">
-                                <rect key="frame" x="16" y="127" width="295" height="111"/>
+                                <rect key="frame" x="13" y="124" width="295" height="111"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTw-UY-jzb">
+                                <rect key="frame" x="238" y="72" width="70" height="86"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RA3-RX-SPw">
                                 <rect key="frame" x="40" y="108" width="240" height="179"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLp-tD-DNY">
-                                <rect key="frame" x="84" y="455" width="153" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Flera Typer">
-                                    <color key="titleColor" red="0.95686274510000002" green="0.050859249910000001" blue="0.1592344611" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Fhc-eb-l8f" kind="show" identifier="flera" id="65x-ll-Ugo"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -124,7 +127,7 @@
                         <size key="landscapeSize" width="568" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
-                        <outlet property="picture" destination="RA3-RX-SPw" id="75A-Mb-kVm"/>
+                        <outlet property="picture" destination="yTw-UY-jzb" id="4d8-GO-ouv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
