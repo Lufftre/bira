@@ -18,8 +18,8 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     var filePath: String
     
-    init(filePath: String){
-        self.filePath = filePath
+    override init(){
+        self.filePath = ""
     }
     
     
@@ -32,6 +32,10 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     var objects = [Dictionary<String, String>]()
     var object = Dictionary<String, String>()
+    
+    func setFilePath(path: String){
+        self.filePath = path
+    }
     
     func parse(handler: () -> Void){
         self.handler = handler

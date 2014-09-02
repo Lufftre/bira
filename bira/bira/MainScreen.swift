@@ -19,6 +19,33 @@ class MainScreen: UIViewController {
         var pic = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/toast-beer.jpg")
         picture.image = UIImage(data: pic)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!){
+        println(segue.identifier)
+        let vc = segue.destinationViewController as Beers
+        switch segue.identifier{
+        case "mörk":
+            vc.title = "Mörk Lager"
+            vc.path = "/Users/Erik/Systembolaget/öltyper/mörk.xml"
+        case "ljus":
+            vc.title = "Ljus Lager"
+            vc.path = "/Users/Erik/Systembolaget/öltyper/ljus.xml"
+        case "ale":
+            vc.title = "Ale"
+            vc.path = "/Users/Erik/Systembolaget/öltyper/ale.xml"
+        case "flera":
+            vc.title = "Flera typer"
+            vc.path = "/Users/Erik/Systembolaget/öltyper/flera.xml"
+        case "special":
+            vc.title = "Special"
+            vc.path = "/Users/Erik/Systembolaget/öltyper/special.xml"
+        case "porter":
+            vc.title = "Porter och Stout"
+            vc.path = "/Users/Erik/Systembolaget/öltyper/porter.xml"
+        default:
+            println("Okänd typ") //Kommer aldrig hända
+        }
+    }
 
 }
 

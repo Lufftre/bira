@@ -8,19 +8,17 @@
 
 import UIKit
 
-let path: String =  "/Users/Erik/Systembolaget/öltyper/mörk.xml"
+
 
 class Beers: UITableViewController, XMLParserDelegate{
+    
+    var path: String = ""
 
+    var parser = XMLParser()
     
-    
-    var parser = XMLParser(filePath: path)
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Mörk Lager"
+        parser.setFilePath(path)
         parser.delegate = self
         parser.parse{
             self.tableView.reloadData()
@@ -28,6 +26,10 @@ class Beers: UITableViewController, XMLParserDelegate{
         
         
     }
+    
+    
+    
+
     
     func XMLParserError(parser: XMLParser, error: String) {
         println(error)
