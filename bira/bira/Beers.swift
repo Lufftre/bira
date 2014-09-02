@@ -27,10 +27,6 @@ class Beers: UITableViewController, XMLParserDelegate{
         
     }
     
-    
-    
-
-    
     func XMLParserError(parser: XMLParser, error: String) {
         println(error)
     }
@@ -39,6 +35,7 @@ class Beers: UITableViewController, XMLParserDelegate{
         return parser.objects.count
     }
     
+    // Här sätts variablerna som motsvarar märket på ölen, dess namn och priset.
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
         
@@ -55,6 +52,7 @@ class Beers: UITableViewController, XMLParserDelegate{
             cell.nameAndPrice.text = cell.nameAndPrice.text +  " - " + pris
         }
         
+        // Skapar pilen vid cellens högra kortsida.
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         

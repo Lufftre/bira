@@ -18,6 +18,7 @@ class MainScreen: UIViewController {
         super.viewDidLoad()
         var pic = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/toast-beer.jpg")
         picture.image = UIImage(data: pic)
+        title = "BraBärs"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!){
