@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0359E25219B4E87C00ACEBEE /* beers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359E25119B4E87C00ACEBEE /* beers.swift */; };
+		0359E25219B4E87C00ACEBEE /* Beers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359E25119B4E87C00ACEBEE /* Beers.swift */; };
+		0359E25419B5200400ACEBEE /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359E25319B5200400ACEBEE /* XMLParser.swift */; };
 		9746BE8019B4929A0049C431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE7F19B4929A0049C431 /* AppDelegate.swift */; };
-		9746BE8219B4929A0049C431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE8119B4929A0049C431 /* ViewController.swift */; };
+		9746BE8219B4929A0049C431 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE8119B4929A0049C431 /* MainScreen.swift */; };
 		9746BE8519B4929A0049C431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9746BE8319B4929A0049C431 /* Main.storyboard */; };
 		9746BE8719B4929A0049C431 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9746BE8619B4929A0049C431 /* Images.xcassets */; };
 		9746BE9319B4929A0049C431 /* biraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE9219B4929A0049C431 /* biraTests.swift */; };
@@ -26,11 +27,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0359E25119B4E87C00ACEBEE /* beers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = beers.swift; path = ../beers.swift; sourceTree = "<group>"; };
+		0359E25119B4E87C00ACEBEE /* Beers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beers.swift; path = ../Beers.swift; sourceTree = "<group>"; };
+		0359E25319B5200400ACEBEE /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		9746BE7A19B4929A0049C431 /* bira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bira.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9746BE7E19B4929A0049C431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9746BE7F19B4929A0049C431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9746BE8119B4929A0049C431 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9746BE8119B4929A0049C431 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		9746BE8419B4929A0049C431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9746BE8619B4929A0049C431 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9746BE8C19B4929A0049C431 /* biraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,9 +79,10 @@
 		9746BE7C19B4929A0049C431 /* bira */ = {
 			isa = PBXGroup;
 			children = (
-				0359E25119B4E87C00ACEBEE /* beers.swift */,
+				0359E25119B4E87C00ACEBEE /* Beers.swift */,
+				0359E25319B5200400ACEBEE /* XMLParser.swift */,
 				9746BE7F19B4929A0049C431 /* AppDelegate.swift */,
-				9746BE8119B4929A0049C431 /* ViewController.swift */,
+				9746BE8119B4929A0049C431 /* MainScreen.swift */,
 				9746BE8319B4929A0049C431 /* Main.storyboard */,
 				9746BE8619B4929A0049C431 /* Images.xcassets */,
 				9746BE7D19B4929A0049C431 /* Supporting Files */,
@@ -211,9 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9746BE8219B4929A0049C431 /* ViewController.swift in Sources */,
+				0359E25419B5200400ACEBEE /* XMLParser.swift in Sources */,
+				9746BE8219B4929A0049C431 /* MainScreen.swift in Sources */,
 				9746BE8019B4929A0049C431 /* AppDelegate.swift in Sources */,
-				0359E25219B4E87C00ACEBEE /* beers.swift in Sources */,
+				0359E25219B4E87C00ACEBEE /* Beers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
