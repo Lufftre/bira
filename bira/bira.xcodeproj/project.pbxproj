@@ -10,13 +10,13 @@
 		0359E25419B5200400ACEBEE /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359E25319B5200400ACEBEE /* XMLParser.swift */; };
 		035CB46B19B5CD3000670789 /* Beers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CB46A19B5CD3000670789 /* Beers.swift */; };
 		035CB46F19B5D9D000670789 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CB46E19B5D9D000670789 /* ItemCell.swift */; };
-		035CB47719B5E87600670789 /* ale.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47019B5E87600670789 /* ale.xml */; };
-		035CB47819B5E87600670789 /* flera.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47119B5E87600670789 /* flera.xml */; };
-		035CB47919B5E87600670789 /* ljus.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47219B5E87600670789 /* ljus.xml */; };
-		035CB47A19B5E87600670789 /* mörk.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47319B5E87600670789 /* mörk.xml */; };
-		035CB47B19B5E87600670789 /* porter.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47419B5E87600670789 /* porter.xml */; };
-		035CB47C19B5E87600670789 /* special.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47519B5E87600670789 /* special.xml */; };
-		035CB47D19B5E87600670789 /* toast-beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47619B5E87600670789 /* toast-beer.jpg */; };
+		035CB48619B5E9F400670789 /* ale.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB47F19B5E9F400670789 /* ale.xml */; };
+		035CB48719B5E9F400670789 /* flera.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB48019B5E9F400670789 /* flera.xml */; };
+		035CB48819B5E9F400670789 /* ljus.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB48119B5E9F400670789 /* ljus.xml */; };
+		035CB48919B5E9F400670789 /* mörk.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB48219B5E9F400670789 /* mörk.xml */; };
+		035CB48A19B5E9F400670789 /* porter.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB48319B5E9F400670789 /* porter.xml */; };
+		035CB48B19B5E9F400670789 /* special.xml in Resources */ = {isa = PBXBuildFile; fileRef = 035CB48419B5E9F400670789 /* special.xml */; };
+		035CB48C19B5E9F400670789 /* toast-beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 035CB48519B5E9F400670789 /* toast-beer.jpg */; };
 		9746BE8019B4929A0049C431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE7F19B4929A0049C431 /* AppDelegate.swift */; };
 		9746BE8219B4929A0049C431 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE8119B4929A0049C431 /* MainScreen.swift */; };
 		9746BE8519B4929A0049C431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9746BE8319B4929A0049C431 /* Main.storyboard */; };
@@ -38,13 +38,13 @@
 		0359E25319B5200400ACEBEE /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		035CB46A19B5CD3000670789 /* Beers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beers.swift; sourceTree = "<group>"; };
 		035CB46E19B5D9D000670789 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
-		035CB47019B5E87600670789 /* ale.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ale.xml; path = "../../../Systembolaget/öltyper/ale.xml"; sourceTree = "<group>"; };
-		035CB47119B5E87600670789 /* flera.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = flera.xml; path = "../../../Systembolaget/öltyper/flera.xml"; sourceTree = "<group>"; };
-		035CB47219B5E87600670789 /* ljus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ljus.xml; path = "../../../Systembolaget/öltyper/ljus.xml"; sourceTree = "<group>"; };
-		035CB47319B5E87600670789 /* mörk.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "mörk.xml"; path = "../../../Systembolaget/öltyper/mörk.xml"; sourceTree = "<group>"; };
-		035CB47419B5E87600670789 /* porter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = porter.xml; path = "../../../Systembolaget/öltyper/porter.xml"; sourceTree = "<group>"; };
-		035CB47519B5E87600670789 /* special.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = special.xml; path = "../../../Systembolaget/öltyper/special.xml"; sourceTree = "<group>"; };
-		035CB47619B5E87600670789 /* toast-beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "toast-beer.jpg"; path = "../../../Systembolaget/öltyper/toast-beer.jpg"; sourceTree = "<group>"; };
+		035CB47F19B5E9F400670789 /* ale.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ale.xml; sourceTree = "<group>"; };
+		035CB48019B5E9F400670789 /* flera.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = flera.xml; sourceTree = "<group>"; };
+		035CB48119B5E9F400670789 /* ljus.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ljus.xml; sourceTree = "<group>"; };
+		035CB48219B5E9F400670789 /* mörk.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "mörk.xml"; sourceTree = "<group>"; };
+		035CB48319B5E9F400670789 /* porter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = porter.xml; sourceTree = "<group>"; };
+		035CB48419B5E9F400670789 /* special.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = special.xml; sourceTree = "<group>"; };
+		035CB48519B5E9F400670789 /* toast-beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "toast-beer.jpg"; sourceTree = "<group>"; };
 		9746BE7A19B4929A0049C431 /* bira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bira.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9746BE7E19B4929A0049C431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9746BE7F19B4929A0049C431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +74,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		035CB47E19B5E9F400670789 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				035CB47F19B5E9F400670789 /* ale.xml */,
+				035CB48019B5E9F400670789 /* flera.xml */,
+				035CB48119B5E9F400670789 /* ljus.xml */,
+				035CB48219B5E9F400670789 /* mörk.xml */,
+				035CB48319B5E9F400670789 /* porter.xml */,
+				035CB48419B5E9F400670789 /* special.xml */,
+				035CB48519B5E9F400670789 /* toast-beer.jpg */,
+			);
+			name = Resources;
+			path = "../../../Systembolaget/öltyper/Resources";
+			sourceTree = "<group>";
+		};
 		9746BE7119B4929A0049C431 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +110,7 @@
 		9746BE7C19B4929A0049C431 /* bira */ = {
 			isa = PBXGroup;
 			children = (
+				035CB47E19B5E9F400670789 /* Resources */,
 				035CB46A19B5CD3000670789 /* Beers.swift */,
 				035CB46E19B5D9D000670789 /* ItemCell.swift */,
 				0359E25319B5200400ACEBEE /* XMLParser.swift */,
@@ -110,13 +126,6 @@
 		9746BE7D19B4929A0049C431 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				035CB47019B5E87600670789 /* ale.xml */,
-				035CB47119B5E87600670789 /* flera.xml */,
-				035CB47219B5E87600670789 /* ljus.xml */,
-				035CB47319B5E87600670789 /* mörk.xml */,
-				035CB47419B5E87600670789 /* porter.xml */,
-				035CB47519B5E87600670789 /* special.xml */,
-				035CB47619B5E87600670789 /* toast-beer.jpg */,
 				9746BE7E19B4929A0049C431 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -219,15 +228,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				035CB47B19B5E87600670789 /* porter.xml in Resources */,
-				035CB47719B5E87600670789 /* ale.xml in Resources */,
-				035CB47919B5E87600670789 /* ljus.xml in Resources */,
-				035CB47C19B5E87600670789 /* special.xml in Resources */,
+				035CB48A19B5E9F400670789 /* porter.xml in Resources */,
+				035CB48619B5E9F400670789 /* ale.xml in Resources */,
+				035CB48819B5E9F400670789 /* ljus.xml in Resources */,
+				035CB48B19B5E9F400670789 /* special.xml in Resources */,
 				9746BE8519B4929A0049C431 /* Main.storyboard in Resources */,
-				035CB47819B5E87600670789 /* flera.xml in Resources */,
+				035CB48719B5E9F400670789 /* flera.xml in Resources */,
 				9746BE8719B4929A0049C431 /* Images.xcassets in Resources */,
-				035CB47A19B5E87600670789 /* mörk.xml in Resources */,
-				035CB47D19B5E87600670789 /* toast-beer.jpg in Resources */,
+				035CB48919B5E9F400670789 /* mörk.xml in Resources */,
+				035CB48C19B5E9F400670789 /* toast-beer.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
