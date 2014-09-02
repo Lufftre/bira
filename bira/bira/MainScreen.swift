@@ -16,7 +16,7 @@ class MainScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var pic = NSData(contentsOfFile: "/toast-beer.jpg")
+        var pic = NSData(contentsOfFile: "/Resources/toast-beer.jpg")
         picture.image = UIImage(data: pic)
     }
 
