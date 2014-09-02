@@ -67,7 +67,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         }
         if let temp = object[current]{
             var tempString = temp
-            tempString += temp
+            //tempString += temp
             object[current] = tempString
         }
         else{

@@ -87,13 +87,13 @@
         <!--Beers-->
         <scene sceneID="RBw-NP-Ygs">
             <objects>
-                <tableViewController id="Fhc-eb-l8f" customClass="Beers" customModule="bira" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="ItemCell" id="Fhc-eb-l8f" customClass="Beers" customModule="bira" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="qDc-N4-Ee4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="90" id="Feh-fa-sHt" customClass="ItemCell" customModule="bira" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="90" id="Feh-fa-sHt" customClass="ItemCell" customModule="bira">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Feh-fa-sHt" id="eth-j0-Csk">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -105,23 +105,32 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Namn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bts-Er-57O" colorLabel="IBBuiltInLabel-Gray">
-                                            <rect key="frame" x="8" y="49" width="179" height="33"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pris" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGb-aS-dmi">
-                                            <rect key="frame" x="190" y="49" width="122" height="33"/>
+                                            <rect key="frame" x="8" y="48" width="240" height="33"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.95686274510000002" green="0.050859249910000001" blue="0.1592344611" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pris" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGb-aS-dmi">
+                                            <rect key="frame" x="156" y="50" width="122" height="33"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.95686274510000002" green="0.050859249910000001" blue="0.1592344611" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ef7-oQ-GjK">
+                                            <rect key="frame" x="290" y="18" width="22" height="22"/>
+                                        </button>
                                     </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="EGb-aS-dmi"/>
+                                            <exclude reference="ef7-oQ-GjK"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="name" destination="FfN-jH-18Q" id="xjS-iy-k5N"/>
-                                    <outlet property="name2" destination="bts-Er-57O" id="gEd-g6-Ylb"/>
-                                    <outlet property="price" destination="EGb-aS-dmi" id="cpg-5k-2i5"/>
+                                    <outlet property="name" destination="FfN-jH-18Q" id="fJY-90-poP"/>
+                                    <outlet property="nameAndPrice" destination="bts-Er-57O" id="Ivk-0N-IPR"/>
+                                    <segue destination="ugM-Ko-IYG" kind="show" id="Uzc-im-DY7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -141,7 +150,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KyJ-BX-fsk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1155" y="6"/>
+            <point key="canvasLocation" x="1155" y="5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7MY-oG-LdF">
+            <objects>
+                <viewController id="ugM-Ko-IYG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Pm-97-YiQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="xci-aw-LJH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jp4-Nr-eL1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating Här" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGq-7f-i0i">
+                                <rect key="frame" x="119" y="164" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8c4-Wu-tqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Idv-lV-IZ5">

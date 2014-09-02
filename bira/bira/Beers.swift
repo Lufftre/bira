@@ -39,16 +39,21 @@ class Beers: UITableViewController, XMLParserDelegate{
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
-        cell.name.text = parser.objects[indexPath.row]["Namn"]
-        cell.name2.text = parser.objects[indexPath.row]["Namn2"]
-        if(cell.name2.text == nil){
-            cell.name2.text = parser.objects[indexPath.row]["Alkoholhalt"]
-        }else{
-            cell.name2.text = cell.name2.text +  ", " + parser.objects[indexPath.row]["Alkoholhalt"]!
-        }
-        let pris = parser.objects[indexPath.row]["Prisinklmoms"]! as NSString
         
-        cell.price.text = pris.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
+        cell.name.text = parser.objects[indexPath.row]["Namn"]
+        
+        cell.nameAndPrice.text = parser.objects[indexPath.row]["Namn2"]
+        let sum = parser.objects[indexPath.row]["Prisinklmoms"]! as NSString
+        let pris = sum.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
+        
+        
+        if(cell.nameAndPrice.text == nil){
+            cell.nameAndPrice.text = pris
+        }else{
+            cell.nameAndPrice.text = cell.nameAndPrice.text +  " - " + pris
+        }
+        
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         
         return cell
