@@ -46,7 +46,11 @@ class Beers: UITableViewController, XMLParserDelegate{
         }else{
             cell.name2.text = cell.name2.text +  ", " + parser.objects[indexPath.row]["Alkoholhalt"]!
         }
-        cell.price.text = parser.objects[indexPath.row]["Prisinklmoms"]! + "kr"
+        let pris = parser.objects[indexPath.row]["Prisinklmoms"]! as NSString
+        
+        cell.price.text = pris.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
+        
+        
         return cell
         
     }

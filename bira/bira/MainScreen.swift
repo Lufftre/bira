@@ -9,12 +9,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainScreen: UIViewController {
     
+    
+    @IBOutlet weak var picture: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        var pic = NSData(contentsOfFile: "/Supporting Files/toast-beer.jpg")
+        picture.image = UIImage(data: pic)
     }
 
 }
