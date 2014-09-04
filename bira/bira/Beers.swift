@@ -54,6 +54,9 @@ class Beers: UITableViewController, XMLParserDelegate{
         
         cell.ölpris = sum.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
         cell.ölmärke = parser.objects[indexPath.row]["Namn"]!
+        cell.ölbryggeri = parser.objects[indexPath.row]["Producent"]!
+        cell.ölförpackning = parser.objects[indexPath.row]["Forpackning"]!
+        cell.ölursprungsland = parser.objects[indexPath.row]["Ursprunglandnamn"]!
         
         
         var volym = parser.objects[indexPath.row]["Volymiml"]!.toInt()!
@@ -109,6 +112,9 @@ class Beers: UITableViewController, XMLParserDelegate{
         vc.procenthalt = senderObject.procenthalt
         vc.ölvolym = senderObject.ölvolym
         vc.ölpris = senderObject.ölpris
+        vc.ölbryggeri = senderObject.ölbryggeri
+        vc.ölförpackning = senderObject.ölförpackning
+        vc.ölursprungsland = senderObject.ölursprungsland
         
     }
     

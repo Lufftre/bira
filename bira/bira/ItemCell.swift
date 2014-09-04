@@ -15,6 +15,9 @@ class ItemCell: UITableViewCell {
     var ölpris: String = ""
     var ölmärke: String = ""
     var ölvolym: String = ""
+    var ölbryggeri: String = ""
+    var ölförpackning: String = ""
+    var ölursprungsland: String = ""
     
     
     
