@@ -10,9 +10,15 @@ import UIKit
 
 class ItemCell: UITableViewCell {
 
+    var procenthalt: String = ""
+    var ölnamn: String = " "
+    var ölpris: String = ""
+    var ölmärke: String = ""
+    var ölvolym: String = ""
     
     
-    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var märke: UILabel!
     @IBOutlet weak var nameAndPrice: UILabel!
     
     

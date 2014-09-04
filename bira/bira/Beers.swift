@@ -16,6 +16,13 @@ class Beers: UITableViewController, XMLParserDelegate{
 
     var parser = XMLParser()
     
+    var ölnamn: String = " "
+    var ölmärke: String = " "
+    var ölpris: String = " "
+    var procenthalt: String = " "
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         parser.setFilePath(path)
@@ -37,19 +44,52 @@ class Beers: UITableViewController, XMLParserDelegate{
     
     // Här sätts variablerna som motsvarar märket på ölen, dess namn och priset.
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
         
-        cell.name.text = parser.objects[indexPath.row]["Namn"]
+        let cell = tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
+        cell.märke.text = parser.objects[indexPath.row]["Namn"]!
+        
         
         cell.nameAndPrice.text = parser.objects[indexPath.row]["Namn2"]
         let sum = parser.objects[indexPath.row]["Prisinklmoms"]! as NSString
-        let pris = sum.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
+        
+        cell.ölpris = sum.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
+        cell.ölmärke = parser.objects[indexPath.row]["Namn"]!
+        
+        
+        var volym = parser.objects[indexPath.row]["Volymiml"]!.toInt()!
+        if(volym >= 1000){
+            var dec = String(volym % 1000)
+            var liters = String(volym / 1000)
+            if(dec == "0"){
+                cell.ölvolym = liters + "l"
+            }
+            else{
+                cell.ölvolym = liters + "." + dec + "l"
+            }
+        }
+        else{
+            var ml = String(volym % 10)
+            var cl = String(volym / 10)
+            if(ml == "0"){
+                cell.ölvolym = cl + "cl"
+            }
+            else{
+                cell.ölvolym = cl + "." + ml + "cl"
+            }
+        }
+        
+        cell.procenthalt = parser.objects[indexPath.row]["Alkoholhalt"]!
+        
+        
+        
+        
         
         
         if(cell.nameAndPrice.text == nil){
-            cell.nameAndPrice.text = pris
+            cell.nameAndPrice.text = cell.ölpris
         }else{
-            cell.nameAndPrice.text = cell.nameAndPrice.text +  " - " + pris
+            cell.ölnamn = parser.objects[indexPath.row]["Namn2"]!
+            cell.nameAndPrice.text = cell.nameAndPrice.text +  " - " + cell.ölpris
         }
         
         // Skapar pilen vid cellens högra kortsida.
@@ -57,6 +97,18 @@ class Beers: UITableViewController, XMLParserDelegate{
         
         
         return cell
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        let senderObject = sender as ItemCell
+        let vc = segue.destinationViewController as BeerInfo
+        println(senderObject.ölmärke)
+        vc.ölmärke = senderObject.ölmärke
+        vc.ölnamn = senderObject.ölnamn
+        vc.procenthalt = senderObject.procenthalt
+        vc.ölvolym = senderObject.ölvolym
+        vc.ölpris = senderObject.ölpris
         
     }
     
