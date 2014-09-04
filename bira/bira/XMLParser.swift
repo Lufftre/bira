@@ -17,6 +17,7 @@ protocol XMLParserDelegate{
 class XMLParser: NSObject, NSXMLParserDelegate {
     
     var filePath: String
+    var root: String = ""
     
     override init(){
         self.filePath = ""
@@ -33,21 +34,33 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var objects = [Dictionary<String, String>]()
     var object = Dictionary<String, String>()
     
-    func setFilePath(path: String){
+    func setFilePath(path: String, root: String){
         self.filePath = path
+        self.root = root
     }
     
     func parse(handler: () -> Void){
         self.handler = handler
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
-            let xmlCode = NSData(contentsOfFile: self.filePath)
-            let parser = NSXMLParser(data: xmlCode)
-            parser.delegate = self
             
-            if !parser.parse() {
-                self.delegate?.XMLParserError(self, error: "Parse Error")
+            
+            let xmlCode = NSData(contentsOfFile: self.filePath)
+            if(self.filePath.hasPrefix("http")){
+                let parser = NSXMLParser(contentsOfURL: NSURL(string: self.filePath))
+                parser.delegate = self
+                if !parser.parse() {
+                    self.delegate?.XMLParserError(self, error: "Parse Error")
+                }
             }
+            else{
+                let parser = NSXMLParser(data: xmlCode)
+                parser.delegate = self
+                if !parser.parse() {
+                    self.delegate?.XMLParserError(self, error: "Parse Error")
+                }
+            }
+            
         }
     }
     
@@ -57,7 +70,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
 
     
     func parser(parser: NSXMLParser, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject : AnyObject]!) {
-        if elementName == "artikel"{
+        if elementName == root{
             object.removeAll(keepCapacity: false)
             inItem = true
         }
@@ -80,7 +93,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
-        if elementName == "artikel"{
+        if elementName == root{
             inItem = false
             objects.append(object)
         }

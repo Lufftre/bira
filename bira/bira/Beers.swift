@@ -25,7 +25,7 @@ class Beers: UITableViewController, XMLParserDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        parser.setFilePath(path)
+        parser.setFilePath(path, root: "artikel")
         parser.delegate = self
         parser.parse{
             self.tableView.reloadData()
@@ -57,6 +57,7 @@ class Beers: UITableViewController, XMLParserDelegate{
         cell.ölbryggeri = parser.objects[indexPath.row]["Producent"]!
         cell.ölförpackning = parser.objects[indexPath.row]["Forpackning"]!
         cell.ölursprungsland = parser.objects[indexPath.row]["Ursprunglandnamn"]!
+        cell.ölid = parser.objects[indexPath.row]["Varnummer"]!
         
         
         var volym = parser.objects[indexPath.row]["Volymiml"]!.toInt()!
@@ -106,7 +107,22 @@ class Beers: UITableViewController, XMLParserDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         let senderObject = sender as ItemCell
         let vc = segue.destinationViewController as BeerInfo
-        println(senderObject.ölmärke)
+        let infoParser: XMLParser = XMLParser()
+        infoParser.setFilePath("http://systembolagetapi.se/?id=" + senderObject.ölid + "&format=xml", root: "item")
+        infoParser.delegate = self
+        println(infoParser.filePath)
+        infoParser.parse{
+            if(infoParser.objects[0]["image"] != nil){
+                vc.bärsbild.image = UIImage(data: NSData(contentsOfURL: NSURL(string: infoParser.objects[0]["image"]!)))
+            }
+            if(infoParser.objects[0]["fragrance"] != nil){
+                vc.smakbeskrivning.text = infoParser.objects[0]["fragrance"]!
+            }
+            if(infoParser.objects[0]["countryFlag"] != nil){
+                vc.flagga.image = UIImage(data: NSData(contentsOfURL: NSURL(string: infoParser.objects[0]["countryFlag"]!)))
+            }
+            
+        }
         vc.ölmärke = senderObject.ölmärke
         vc.ölnamn = senderObject.ölnamn
         vc.procenthalt = senderObject.procenthalt
@@ -115,6 +131,9 @@ class Beers: UITableViewController, XMLParserDelegate{
         vc.ölbryggeri = senderObject.ölbryggeri
         vc.ölförpackning = senderObject.ölförpackning
         vc.ölursprungsland = senderObject.ölursprungsland
+        vc.ölid = senderObject.ölid
+        
+        
         
     }
     
