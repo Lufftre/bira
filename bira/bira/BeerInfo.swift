@@ -8,22 +8,22 @@
 
 import UIKit
 
-class BeerInfo: UIViewController, XMLParserDelegate {
+class BeerInfo: UIViewController{
 
     
-    var parser = XMLParser()
     
     var ölmärke: String = ""
     var ölnamn: String = " "
     var procenthalt: String = ""
     var ölpris: String = ""
     var ölvolym: String = ""
-    var bild: UIImage = UIImage(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/toast-beer.jpg")
     var ölbryggeri: String = ""
     var ölförpackning: String = ""
     var ölursprungsland: String = ""
     var ölid: String = ""
     var smak: String = ""
+    var hemsida: String = ""
+    var systemetIkon = UIImage(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bolaget.png")
 
     @IBOutlet weak var pris: UILabel!
     @IBOutlet weak var namn: UILabel!
@@ -37,12 +37,19 @@ class BeerInfo: UIViewController, XMLParserDelegate {
     @IBOutlet weak var volym: UILabel!
     @IBOutlet weak var smakbeskrivning: UILabel!
     @IBOutlet weak var flagga: UIImageView!
+    @IBOutlet weak var ÖL: UILabel!
+    @IBOutlet weak var produktsida: UIButton!
     
+    
+    @IBAction func produktsida(sender: AnyObject) {
+        var url = NSURL(string: hemsida)
+        UIApplication.sharedApplication().openURL(url)
+    }
     override func viewDidLoad() {
+        produktsida.setBackgroundImage(systemetIkon, forState: UIControlState())
         märke.text = ölmärke
         namn.text = ölnamn
         alkoholhalt.text = procenthalt
-        println(ölvolym)
         pris.text = ölpris
         smakbeskrivning.text = smak
         smakbeskrivning.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -60,10 +67,6 @@ class BeerInfo: UIViewController, XMLParserDelegate {
         bärsbild.layer.cornerRadius = 5.0
         bärsbild.clipsToBounds = true
         
-        
-        
-        
-        //http://systembolagetapi.se/?id=1203&format=xml
         
         
     }

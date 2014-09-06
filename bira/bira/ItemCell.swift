@@ -23,7 +23,10 @@ class ItemCell: UITableViewCell {
     
     
     @IBOutlet weak var märke: UILabel!
-    @IBOutlet weak var nameAndPrice: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var alkoholhalt: UILabel!
+    @IBOutlet weak var pris: UILabel!
+    
     
     
     

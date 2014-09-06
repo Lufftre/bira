@@ -17,10 +17,12 @@ protocol XMLParserDelegate{
 class XMLParser: NSObject, NSXMLParserDelegate {
     
     var filePath: String
-    var root: String = ""
+    var root: String
     
     override init(){
         self.filePath = ""
+        self.root = ""
+        
     }
     
     
@@ -31,7 +33,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var inItem = false
     var current = String()
     
-    var objects = [Dictionary<String, String>]()
+    var objects = [Dictionary<String,String>()]
     var object = Dictionary<String, String>()
     
     func setFilePath(path: String, root: String){
@@ -45,15 +47,18 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
             
             
-            let xmlCode = NSData(contentsOfFile: self.filePath)
+            
             if(self.filePath.hasPrefix("http")){
-                let parser = NSXMLParser(contentsOfURL: NSURL(string: self.filePath))
+                let xmlCode = NSData(contentsOfURL: NSURL(string: self.filePath))
+                let parser = NSXMLParser(data: xmlCode)
                 parser.delegate = self
                 if !parser.parse() {
+                    
                     self.delegate?.XMLParserError(self, error: "Parse Error")
                 }
             }
             else{
+                let xmlCode = NSData(contentsOfFile: self.filePath)
                 let parser = NSXMLParser(data: xmlCode)
                 parser.delegate = self
                 if !parser.parse() {
@@ -82,14 +87,14 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         if !inItem{
             return
         }
-        if let temp = object[current]{
-            var tempString = temp
-            //tempString += temp
+        if(object[current] != nil){
+            var tempString = object[current]! + string
             object[current] = tempString
-        }
-        else{
+        }else{
             object[current] = string
         }
+        
+        
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
