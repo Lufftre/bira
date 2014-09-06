@@ -33,7 +33,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     var inItem = false
     var current = String()
     
-    var objects = [Dictionary<String,String>()]
+    var objects = [Dictionary<String,String>]()
     var object = Dictionary<String, String>()
     
     func setFilePath(path: String, root: String){
@@ -80,6 +80,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             inItem = true
         }
         current = elementName
+        
     }
     
     
