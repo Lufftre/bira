@@ -27,6 +27,7 @@ class MainScreen: UIViewController {
         titleLabel.textColor = UIColor.redColor()
         self.navigationItem.titleView = titleLabel
         
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!){
