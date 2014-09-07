@@ -46,6 +46,9 @@ class BeerInfo: UIViewController{
         UIApplication.sharedApplication().openURL(url)
     }
     override func viewDidLoad() {
+        
+        
+        
         produktsida.setBackgroundImage(systemetIkon, forState: UIControlState())
         märke.text = ölmärke
         namn.text = ölnamn
@@ -56,14 +59,23 @@ class BeerInfo: UIViewController{
         smakbeskrivning.numberOfLines = 0;
         smakbeskrivning.sizeToFit()
         
-        title = ölmärke
+        var titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        titleLabel.font = UIFont(name: "Helvetica Light", size: 20)
+        titleLabel.text = ölmärke
+        titleLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.textColor = UIColor.redColor()
+        self.navigationItem.titleView = titleLabel
+        
+        // And the other things
+        //title = ölmärke
         bryggeri.text = ölbryggeri
         förpackning.text = ölförpackning
         ursprungsland.text = ölursprungsland
         volym.text = ölvolym
-        
+    
+        bärsbild.backgroundColor = UIColor.whiteColor()
         bärsbild.layer.borderColor = UIColor.lightGrayColor().CGColor;
-        bärsbild.layer.borderWidth = 1.5;
+        bärsbild.layer.borderWidth = 2.0;
         bärsbild.layer.cornerRadius = 5.0
         bärsbild.clipsToBounds = true
         

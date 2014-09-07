@@ -19,7 +19,13 @@ class MainScreen: UIViewController {
         super.viewDidLoad()
         var pic = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bärs.jpg")
         picture.image = UIImage(data: pic)
-        title = "BraBärs"
+        
+        var titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        titleLabel.font = UIFont(name: "Helvetica Light", size: 20)
+        titleLabel.text = "BraBärs"
+        titleLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.textColor = UIColor.redColor()
+        self.navigationItem.titleView = titleLabel
         
     }
     
@@ -28,22 +34,22 @@ class MainScreen: UIViewController {
         let vc = segue.destinationViewController as Beers
         switch segue.identifier{
         case "mörk":
-            vc.title = "Mörk Lager"
+            vc.titleText = "Mörk Lager"
             vc.path = "/Users/Erik/Systembolaget/öltyper/mörk.xml"
         case "ljus":
-            vc.title = "Ljus Lager"
+            vc.titleText = "Ljus Lager"
             vc.path = "/Users/Erik/Systembolaget/öltyper/ljus.xml"
         case "ale":
-            vc.title = "Ale"
+            vc.titleText = "Ale"
             vc.path = "/Users/Erik/Systembolaget/öltyper/ale.xml"
         case "flera":
-            vc.title = "Flera typer"
+            vc.titleText = "Flera typer"
             vc.path = "/Users/Erik/Systembolaget/öltyper/flera.xml"
         case "special":
-            vc.title = "Special"
+            vc.titleText = "Special"
             vc.path = "/Users/Erik/Systembolaget/öltyper/special.xml"
         case "porter":
-            vc.title = "Porter och Stout"
+            vc.titleText = "Porter och Stout"
             vc.path = "/Users/Erik/Systembolaget/öltyper/porter.xml"
         default:
             println("Okänd typ") //Kommer aldrig hända

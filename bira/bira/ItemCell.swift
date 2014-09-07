@@ -19,7 +19,7 @@ class ItemCell: UITableViewCell {
     var ölförpackning: String = ""
     var ölursprungsland: String = ""
     var ölid: String = ""
-    
+    var ölsmak: String = ""
     
     
     @IBOutlet weak var märke: UILabel!
