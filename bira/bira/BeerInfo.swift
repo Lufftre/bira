@@ -25,7 +25,9 @@ class BeerInfo: UIViewController{
     var hemsida: String = ""
     var systemetIkon = UIImage(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bolaget.png")
     var bild: UIImage?
+    var apk: String = ""
 
+    @IBOutlet weak var APK: UILabel!
     @IBOutlet weak var pris: UILabel!
     @IBOutlet weak var namn: UILabel!
     @IBOutlet weak var märke: UILabel!
@@ -64,6 +66,8 @@ class BeerInfo: UIViewController{
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.textColor = UIColor.redColor()
         self.navigationItem.titleView = titleLabel
+        
+        self.APK.text = self.apk + "ml/kr"
         
         // And the other things
         //title = ölmärke

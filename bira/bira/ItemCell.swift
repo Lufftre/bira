@@ -21,6 +21,7 @@ class ItemCell: UITableViewCell {
     var ölid: String = ""
     var ölsmak: String = ""
     var ölbild: UIImage?
+    var apk: String = ""
     
     
     @IBOutlet weak var bild: UIImageView!

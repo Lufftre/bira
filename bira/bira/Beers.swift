@@ -74,11 +74,19 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         
         func setCellVariables(cell: ItemCell, dict: Dictionary<String,String>){
             
+                var kr = 0.0
+                var alcohol = 0.0
+                var vol = 0.0
+            
+                var formatter = NSNumberFormatter()
+                formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
             
                 if(dict["Prisinklmoms"] != nil){
+                    
                     let sum = dict["Prisinklmoms"]! as NSString
-                    cell.pris.text = sum.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
-                    cell.ölpris = sum.substringWithRange(NSRange(location: 0, length: 5)) + "kr"
+                    kr = formatter.numberFromString(sum)!.doubleValue
+                    cell.pris.text = NSString(format:"%.2f", kr) + "kr"
+                    cell.ölpris = NSString(format:"%.2f", kr) + "kr"
                 }
                 if(dict["Namn"] != nil){
                     cell.ölmärke = dict["Namn"]!
@@ -112,6 +120,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
             
                 if(dict["Volymiml"] != nil){
                     var volym = dict["Volymiml"]!.toInt()!
+                    vol = formatter.numberFromString(dict["Volymiml"]!)!.doubleValue
                     
                     if(volym >= 1000){
                         var dec = String(volym % 1000)
@@ -135,9 +144,16 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                     }
                 }
                 if(dict["Alkoholhalt"] != nil){
-                    cell.procenthalt = dict["Alkoholhalt"]!
-                    cell.alkoholhalt.text = cell.procenthalt
+                    let proc = dict["Alkoholhalt"]!
+                    cell.procenthalt = proc
+                    cell.alkoholhalt.text = proc
+                    
+                    
+                    alcohol = formatter.numberFromString(proc.stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))!.doubleValue
                 }
+            
+                var apk = ((alcohol*0.01*vol)/kr)
+                cell.apk = NSString(format:"%.2f", apk)
                 
                 cell.name.text = dict["Namn2"]
                 if(cell.name.text == nil){
@@ -161,7 +177,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         let senderObject = sender as ItemCell
         let vc = segue.destinationViewController as BeerInfo
         
-        
+        vc.apk = senderObject.apk
         vc.bild = senderObject.ölbild
         vc.smak = senderObject.ölsmak
         vc.ölmärke = senderObject.ölmärke
