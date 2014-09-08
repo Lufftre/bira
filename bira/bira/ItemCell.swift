@@ -22,6 +22,8 @@ class ItemCell: UITableViewCell {
     var ölsmak: String = ""
     
     
+    @IBOutlet weak var bild: UIImageView!
+    
     @IBOutlet weak var märke: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var alkoholhalt: UILabel!

@@ -35,6 +35,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     
     var objects = [Dictionary<String,String>]()
     var object = Dictionary<String, String>()
+    var images = Dictionary<String, UIImage>()
     
     func setFilePath(path: String, root: String){
         self.filePath = path
@@ -79,6 +80,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
             object.removeAll(keepCapacity: false)
             inItem = true
         }
+        
         current = elementName
         
     }
@@ -94,19 +96,20 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         }else{
             object[current] = string
         }
-        
-        
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
         if elementName == root{
             inItem = false
+            
             objects.append(object)
         }
 
     }
     
     func parserDidEndDocument(parser: NSXMLParser) {
+        
+    
         dispatch_async(dispatch_get_main_queue()){
             if (self.handler != nil){
                 self.handler!()

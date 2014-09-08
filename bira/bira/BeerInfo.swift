@@ -24,6 +24,7 @@ class BeerInfo: UIViewController{
     var smak: String = ""
     var hemsida: String = ""
     var systemetIkon = UIImage(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bolaget.png")
+    var bilder = Dictionary<String,String>()
 
     @IBOutlet weak var pris: UILabel!
     @IBOutlet weak var namn: UILabel!
@@ -78,8 +79,6 @@ class BeerInfo: UIViewController{
         bärsbild.layer.borderWidth = 2.0;
         bärsbild.layer.cornerRadius = 5.0
         bärsbild.clipsToBounds = true
-        
-        
         
     }
     
