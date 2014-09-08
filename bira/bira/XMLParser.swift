@@ -90,9 +90,9 @@ class XMLParser: NSObject, NSXMLParserDelegate {
         if !inItem{
             return
         }
-        if(object[current] != nil){
-            var tempString = object[current]! + string
-            object[current] = tempString
+        if((object[current] != nil) && (object[current] != string)){
+                var tempString = object[current]! + string
+                object[current] = tempString
         }else{
             object[current] = string
         }

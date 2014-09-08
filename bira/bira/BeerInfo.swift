@@ -24,7 +24,7 @@ class BeerInfo: UIViewController{
     var smak: String = ""
     var hemsida: String = ""
     var systemetIkon = UIImage(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bolaget.png")
-    var bilder = Dictionary<String,String>()
+    var bild: UIImage?
 
     @IBOutlet weak var pris: UILabel!
     @IBOutlet weak var namn: UILabel!
@@ -47,8 +47,6 @@ class BeerInfo: UIViewController{
         UIApplication.sharedApplication().openURL(url)
     }
     override func viewDidLoad() {
-        
-        
         
         produktsida.setBackgroundImage(systemetIkon, forState: UIControlState())
         märke.text = ölmärke
@@ -74,6 +72,10 @@ class BeerInfo: UIViewController{
         ursprungsland.text = ölursprungsland
         volym.text = ölvolym
     
+        if(bild != nil){
+            ÖL.text = ""
+            bärsbild.image = bild
+        }
         bärsbild.backgroundColor = UIColor.whiteColor()
         bärsbild.layer.borderColor = UIColor.lightGrayColor().CGColor;
         bärsbild.layer.borderWidth = 2.0;

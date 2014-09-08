@@ -20,6 +20,7 @@ class ItemCell: UITableViewCell {
     var ölursprungsland: String = ""
     var ölid: String = ""
     var ölsmak: String = ""
+    var ölbild: UIImage?
     
     
     @IBOutlet weak var bild: UIImageView!

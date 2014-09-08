@@ -22,9 +22,6 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
     var procenthalt: String = " "
     var titleText: String = ""
     
-    var imageCache = NSMutableDictionary()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,78 +96,20 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                 if(dict["Varnummer"] != nil){
                     cell.ölid = dict["Varnummer"]!
                 }
-                if(dict["image"] != nil){
-                    cell.bild.image = UIImage(data: NSData(contentsOfURL: NSURL(string: dict["image"]!)))
+            
+                //Placeholders
+                cell.bild.image = UIImage()
+                cell.ölbild = UIImage()
+                dispatch_async(dispatch_get_main_queue()) {
+                    if(dict["image"] != nil){
+                        cell.bild.image = UIImage(data: NSData(contentsOfURL: NSURL(string: dict["image"]!)))
+                        cell.ölbild = cell.bild.image
+                    }
                 }
                 if(dict["fragrance"] != nil){
                     cell.ölsmak = dict["fragrance"]!
                 }
             
-
-            
-            /*
-            var concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-            //this will start the image loading in bg
-            dispatch_async(concurrentQueue, {
-                
-                var bild = UIImage()
-                let infoParser = XMLParser()
-                // Gets the image representing the beer and the taste description
-                infoParser.setFilePath("/Users/Erik/Systembolaget/öltyper/artiklar/" + cell.ölid + "test.xml", root: "item")
-                infoParser.delegate = self
-                infoParser.parse{
-                    println(infoParser.objects)
-                    if(infoParser.objects[0]["image"] != nil){
-                        bild = UIImage(data: NSData(contentsOfURL: NSURL(string: infoParser.objects[0]["image"]!)))
-                    }
-                }
-                
-                //this will set the image when loading is finished
-                dispatch_async(dispatch_get_main_queue(), {
-                    cell.bild.image = bild
-                    //self.tableView.reloadData()
-                    dispatch_release(concurrentQueue);
-                    });
-                });*/
-            
-            /*
-            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                // Jump in to a background thread to get the image for this item
-                
-                var id: String = dict["Varnummer"]!
-                var urlString: String = ""
-                let infoParser = XMLParser()
-                // Gets the image representing the beer and the taste description
-                infoParser.setFilePath("/Users/Erik/Systembolaget/öltyper/artiklar/" + id + "test.xml", root: "item")
-                infoParser.delegate = self
-                infoParser.parse{
-                    if(infoParser.objects[0]["image"] != nil){
-                        urlString = infoParser.objects[0]["image"]!
-                    }
-                }
-
-                // Check our image cache for the existing key. This is just a dictionary of UIImages
-                var image: UIImage? = self.imageCache.valueForKey(id) as? UIImage
-                
-                if( image == nil ) {
-                    
-                    // If the image does not exist, we need to download it
-                    var imgURL: NSURL = NSURL(string: urlString)
-                    
-                    var imgData: NSData = NSData(contentsOfURL: imgURL)
-                    image = UIImage(data: imgData)
-                    
-                    // Store the image in to our cache
-                    self.imageCache.setValue(image, forKey: id)
-                    cell.bild.image = image
-                }
-                else {
-                    cell.bild.image = image
-                }
-                
-                
-            })*/
-    
                 if(dict["Volymiml"] != nil){
                     var volym = dict["Volymiml"]!.toInt()!
                     
@@ -223,10 +162,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         let vc = segue.destinationViewController as BeerInfo
         
         
-        if(senderObject.bild.image != nil){
-             vc.bärsbild.image = senderObject.bild.image
-        }
-       
+        vc.bild = senderObject.ölbild
         vc.smak = senderObject.ölsmak
         vc.ölmärke = senderObject.ölmärke
         vc.ölnamn = senderObject.ölnamn
@@ -243,7 +179,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
     
     // Size of each cell
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        return 130    }
+        return 140    }
     
     func filterContentForSearchText(searchText: String) {
         // Filter the array using the filter method
