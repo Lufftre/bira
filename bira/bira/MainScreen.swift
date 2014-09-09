@@ -1,11 +1,4 @@
 
-//
-//  ViewController.swift
-//  bira
-//
-//  Created by Ludvig Noring on 01/09/14.
-//  Copyright (c) 2014 Ludvig Noring. All rights reserved.
-//
 
 import UIKit
 
@@ -13,12 +6,15 @@ class MainScreen: UIViewController {
     
     
     @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var backEndLogo: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var pic = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bärs.jpg")
+        var logo = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/poweredbyuntapped.png")
         picture.image = UIImage(data: pic)
+        backEndLogo.image = UIImage(data: logo)
         
         var titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         titleLabel.font = UIFont(name: "Helvetica Light", size: 20)
