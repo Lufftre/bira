@@ -107,11 +107,14 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
             
                 //Placeholders
                 cell.bild.image = UIImage()
+                cell.ölLabel.text = "ÖL"
                 cell.ölbild = UIImage()
                 dispatch_async(dispatch_get_main_queue()) {
                     if(dict["image"] != nil){
                         cell.bild.image = UIImage(data: NSData(contentsOfURL: NSURL(string: dict["image"]!)))
+                        cell.ölLabel.text = ""
                         cell.ölbild = cell.bild.image
+                        
                     }
                 }
                 if(dict["fragrance"] != nil){
@@ -154,6 +157,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
             
                 var apk = ((alcohol*0.01*vol)/kr)
                 cell.apk = NSString(format:"%.2f", apk)
+                cell.APK.text = cell.apk + "ml/kr"
                 
                 cell.name.text = dict["Namn2"]
                 if(cell.name.text == nil){
@@ -177,8 +181,13 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         let senderObject = sender as ItemCell
         let vc = segue.destinationViewController as BeerInfo
         
-        vc.apk = senderObject.apk
+        if(senderObject.ölLabel == "ÖL"){
+            vc.hasLoadedImage = false
+        }else{
+            vc.hasLoadedImage = true
+        }
         vc.bild = senderObject.ölbild
+        vc.apk = senderObject.apk
         vc.smak = senderObject.ölsmak
         vc.ölmärke = senderObject.ölmärke
         vc.ölnamn = senderObject.ölnamn

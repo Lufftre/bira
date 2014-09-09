@@ -26,6 +26,7 @@ class BeerInfo: UIViewController{
     var systemetIkon = UIImage(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bolaget.png")
     var bild: UIImage?
     var apk: String = ""
+    var hasLoadedImage = false
 
     @IBOutlet weak var APK: UILabel!
     @IBOutlet weak var pris: UILabel!
@@ -39,7 +40,6 @@ class BeerInfo: UIViewController{
     @IBOutlet weak var förpackning: UILabel!
     @IBOutlet weak var volym: UILabel!
     @IBOutlet weak var smakbeskrivning: UILabel!
-    @IBOutlet weak var flagga: UIImageView!
     @IBOutlet weak var ÖL: UILabel!
     @IBOutlet weak var produktsida: UIButton!
     
@@ -76,7 +76,9 @@ class BeerInfo: UIViewController{
         ursprungsland.text = ölursprungsland
         volym.text = ölvolym
     
-        if(bild != nil){
+        
+        ÖL.text = "ÖL"
+        if(hasLoadedImage){
             ÖL.text = ""
             bärsbild.image = bild
         }
