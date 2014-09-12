@@ -23,7 +23,7 @@ class BeerInfo: UIViewController{
     var ölid: String = ""
     var smak: String = ""
     var hemsida: String = ""
-    var systemetIkon = UIImage(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bolaget.png")
+    var systemetIkon = UIImage(contentsOfFile: NSBundle.mainBundle().pathForResource("bolaget", ofType: "png")!)
     var bild: UIImage?
     var apk: String = ""
     var hasLoadedImage = false

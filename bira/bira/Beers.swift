@@ -21,6 +21,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
     var ölpris: String = " "
     var procenthalt: String = " "
     var titleText: String = ""
+    var cache_images = Dictionary<String, UIImage>()
     
     
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         
         parser.setFilePath(path, root: "artikel")
         parser.delegate = self
-        parser.parse{
+        self.parser.parse{
             self.tableView.reloadData()
         }
         
@@ -84,7 +85,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                 if(dict["Prisinklmoms"] != nil){
                     
                     let sum = dict["Prisinklmoms"]! as NSString
-                    kr = formatter.numberFromString(sum)!.doubleValue
+                    kr = NSDecimalNumber.decimalNumberWithString(sum, locale: nil)
                     cell.pris.text = NSString(format:"%.2f", kr) + "kr"
                     cell.ölpris = NSString(format:"%.2f", kr) + "kr"
                 }
@@ -105,18 +106,28 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                     cell.ölid = dict["Varnummer"]!
                 }
             
+            
                 //Placeholders
                 cell.bild.image = UIImage()
                 cell.ölLabel.text = "ÖL"
                 cell.ölbild = UIImage()
-                dispatch_async(dispatch_get_main_queue()) {
-                    if(dict["image"] != nil){
-                        cell.bild.image = UIImage(data: NSData(contentsOfURL: NSURL(string: dict["image"]!)))
-                        cell.ölLabel.text = ""
-                        cell.ölbild = cell.bild.image
+                if(cache_images[cell.ölid] != nil){
+                    cell.bild.image = cache_images[cell.ölid]
+                    cell.ölbild = cache_images[cell.ölid]
+                    cell.ölLabel.text = ""
+                    println(cell.ölid)
+                }else{
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if(dict["image"] != nil){
+                            cell.bild.image = UIImage(data: NSData(contentsOfURL: NSURL(string: dict["image"]!)))
+                            cell.ölLabel.text = ""
+                            cell.ölbild = cell.bild.image
+                            self.cache_images[cell.ölid] = cell.ölbild
                         
+                        }
                     }
                 }
+            
                 if(dict["fragrance"] != nil){
                     cell.ölsmak = dict["fragrance"]!
                 }
@@ -146,13 +157,16 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                         }
                     }
                 }
+                cell.vol.text = cell.ölvolym
                 if(dict["Alkoholhalt"] != nil){
                     let proc = dict["Alkoholhalt"]!
                     cell.procenthalt = proc
                     cell.alkoholhalt.text = proc
                     
+                    var numb = proc.stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    var test = NSDecimalNumber.decimalNumberWithString(numb, locale: nil)
+                    alcohol = test.doubleValue
                     
-                    alcohol = formatter.numberFromString(proc.stringByReplacingOccurrencesOfString("%", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil))!.doubleValue
                 }
             
                 var apk = ((alcohol*0.01*vol)/kr)

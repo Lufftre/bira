@@ -11,8 +11,8 @@ class MainScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var pic = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/bärs.jpg")
-        var logo = NSData(contentsOfFile: "/Users/Erik/Systembolaget/öltyper/poweredbyuntapped.png")
+        var pic = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("bärs", ofType: "jpg")!)
+        var logo = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("poweredbyuntapped", ofType: "png")!)
         picture.image = UIImage(data: pic)
         backEndLogo.image = UIImage(data: logo)
         
@@ -32,22 +32,22 @@ class MainScreen: UIViewController {
         switch segue.identifier{
         case "mörk":
             vc.titleText = "Mörk Lager"
-            vc.path = "/Users/Erik/Systembolaget/öltyper/mörk.xml"
+            vc.path = NSBundle.mainBundle().pathForResource("mörk", ofType: "xml")!
         case "ljus":
             vc.titleText = "Ljus Lager"
-            vc.path = "/Users/Erik/Systembolaget/öltyper/ljus.xml"
+            vc.path = NSBundle.mainBundle().pathForResource("ljus", ofType: "xml")!
         case "ale":
             vc.titleText = "Ale"
-            vc.path = "/Users/Erik/Systembolaget/öltyper/ale.xml"
+            vc.path = NSBundle.mainBundle().pathForResource("ale", ofType: "xml")!
         case "flera":
             vc.titleText = "Flera typer"
-            vc.path = "/Users/Erik/Systembolaget/öltyper/flera.xml"
+            vc.path = NSBundle.mainBundle().pathForResource("flera", ofType: "xml")!
         case "special":
             vc.titleText = "Special"
-            vc.path = "/Users/Erik/Systembolaget/öltyper/special.xml"
+            vc.path = NSBundle.mainBundle().pathForResource("special", ofType: "xml")!
         case "porter":
             vc.titleText = "Porter och Stout"
-            vc.path = "/Users/Erik/Systembolaget/öltyper/porter.xml"
+            vc.path = NSBundle.mainBundle().pathForResource("porter", ofType: "xml")!
         default:
             println("Okänd typ") //Kommer aldrig hända
         }
