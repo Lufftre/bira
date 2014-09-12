@@ -20,7 +20,7 @@ class MainScreen: UIViewController {
         titleLabel.font = UIFont(name: "Helvetica Light", size: 20)
         titleLabel.text = "BraBärs"
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.textColor = UIColor.redColor()
+        titleLabel.textColor = UIColor.grayColor()
         self.navigationItem.titleView = titleLabel
         
         

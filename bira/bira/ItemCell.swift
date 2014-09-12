@@ -24,6 +24,7 @@ class ItemCell: UITableViewCell {
     var apk: String = ""
     
     
+    @IBOutlet weak var nr: UILabel!
     @IBOutlet weak var bild: UIImageView!
     @IBOutlet weak var vol: UILabel!
     @IBOutlet weak var ölLabel: UILabel!

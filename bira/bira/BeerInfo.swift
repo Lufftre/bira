@@ -64,7 +64,7 @@ class BeerInfo: UIViewController{
         titleLabel.font = UIFont(name: "Helvetica Light", size: 20)
         titleLabel.text = ölmärke
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.textColor = UIColor.redColor()
+        titleLabel.textColor = UIColor.grayColor()
         self.navigationItem.titleView = titleLabel
         
         self.APK.text = self.apk + "ml/kr"

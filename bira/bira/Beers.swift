@@ -31,12 +31,13 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         titleLabel.font = UIFont(name: "Helvetica Light", size: 20)
         titleLabel.text = titleText
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.textColor = UIColor.redColor()
+        titleLabel.textColor = UIColor.grayColor()
         self.navigationItem.titleView = titleLabel
         
         parser.setFilePath(path, root: "artikel")
         parser.delegate = self
         self.parser.parse{
+            self.parser.objects.sort({ $0["Namn"] < $1["Namn"] })
             self.tableView.reloadData()
         }
         
@@ -62,11 +63,11 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
         
+        cell.nr.text = String(indexPath.row+1) + "."
+        
         if(tableView == self.searchDisplayController!.searchResultsTableView){
             setCellVariables(cell, dict: self.searchResults[indexPath.row])
-
         }
-
         else{
             setCellVariables(cell, dict: self.parser.objects[indexPath.row])
         }
