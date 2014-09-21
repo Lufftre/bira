@@ -37,7 +37,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         parser.setFilePath(path, root: "artikel")
         parser.delegate = self
         self.parser.parse{
-            self.parser.objects.sort({ $0["Namn"] < $1["Namn"] })
+            //self.parser.objects.sort({ $0["Namn"] < $1["Namn"] })
             self.tableView.reloadData()
         }
         
@@ -111,21 +111,28 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                 //Placeholders
                 cell.bild.image = UIImage()
                 cell.ölLabel.text = "ÖL"
-                cell.ölbild = UIImage()
+                cell.ölbild = nil
                 if(cache_images[cell.ölid] != nil){
                     cell.bild.image = cache_images[cell.ölid]
                     cell.ölbild = cache_images[cell.ölid]
                     cell.ölLabel.text = ""
                     println(cell.ölid)
                 }else{
-                    dispatch_async(dispatch_get_main_queue()) {
-                        if(dict["image"] != nil){
-                            cell.bild.image = UIImage(data: NSData(contentsOfURL: NSURL(string: dict["image"]!)))
-                            cell.ölLabel.text = ""
-                            cell.ölbild = cell.bild.image
-                            self.cache_images[cell.ölid] = cell.ölbild
-                        
-                        }
+                    if(dict["image"] != nil){
+                        let request: NSURLRequest = NSURLRequest(URL: NSURL(string: dict["image"]!))
+                        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(),completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+                            if(error == nil){
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    cell.bild.image = UIImage(data: data)
+                                    cell.ölbild = cell.bild.image
+                                    self.cache_images[cell.ölid] = cell.ölbild
+                                    cell.ölLabel.text = ""
+                                }
+                            }else{
+                                println("Error: \(error.localizedDescription)")
+                            }
+                            
+                        })
                     }
                 }
             
@@ -173,11 +180,11 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                 var apk = ((alcohol*0.01*vol)/kr)
                 cell.apk = NSString(format:"%.2f", apk)
                 cell.APK.text = cell.apk + "ml/kr"
-                
-                cell.name.text = dict["Namn2"]
-                if(cell.name.text == nil){
-                    cell.name.text = ""
-                }else{
+            
+            
+                cell.name.text =  "" // Placeholder
+                cell.ölnamn = "" // Placeholder
+                if(dict["Namn2"] != nil){
                     cell.ölnamn = dict["Namn2"]!
                     cell.name.text = cell.ölnamn
                 }
@@ -196,11 +203,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         let senderObject = sender as ItemCell
         let vc = segue.destinationViewController as BeerInfo
         
-        if(senderObject.ölLabel == "ÖL"){
-            vc.hasLoadedImage = false
-        }else{
-            vc.hasLoadedImage = true
-        }
+        vc.placeholderImgText = senderObject.ölLabel.text
         vc.bild = senderObject.ölbild
         vc.apk = senderObject.apk
         vc.smak = senderObject.ölsmak

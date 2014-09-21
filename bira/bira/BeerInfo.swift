@@ -27,6 +27,7 @@ class BeerInfo: UIViewController{
     var bild: UIImage?
     var apk: String = ""
     var hasLoadedImage = false
+    var placeholderImgText = ""
 
     @IBOutlet weak var APK: UILabel!
     @IBOutlet weak var pris: UILabel!
@@ -77,11 +78,10 @@ class BeerInfo: UIViewController{
         volym.text = ölvolym
     
         
-        ÖL.text = "ÖL"
-        if(hasLoadedImage){
-            ÖL.text = ""
-            bärsbild.image = bild
-        }
+        
+        ÖL.text = placeholderImgText
+        bärsbild.image = bild
+        
         bärsbild.backgroundColor = UIColor.whiteColor()
         bärsbild.layer.borderColor = UIColor.lightGrayColor().CGColor;
         bärsbild.layer.borderWidth = 2.0;

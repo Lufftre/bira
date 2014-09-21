@@ -45,6 +45,7 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     func parse(handler: () -> Void){
         self.handler = handler
         
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
             
             
