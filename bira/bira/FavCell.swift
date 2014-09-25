@@ -1,15 +1,15 @@
 //
-//  ItemCell.swift
+//  FavCell.swift
 //  bira
 //
-//  Created by Erik Linder-Norén on 2014-09-02.
+//  Created by Erik Linder-Norén on 2014-09-25.
 //  Copyright (c) 2014 Ludvig Noring. All rights reserved.
 //
 
 import UIKit
 
-class ItemCell: UITableViewCell {
-
+class FavCell: UITableViewCell {
+    
     var procenthalt: String = ""
     var ölnamn: String = " "
     var ölpris: String = ""
@@ -23,19 +23,17 @@ class ItemCell: UITableViewCell {
     var ölbild: UIImage?
     var apk: String = ""
     var beerInfo: Dictionary<String,String>?
-    
-    
-    @IBOutlet weak var nr: UILabel!
+
+    @IBOutlet weak var ölLabel: UILabel!
     @IBOutlet weak var bild: UIImageView!
     @IBOutlet weak var vol: UILabel!
-    @IBOutlet weak var ölLabel: UILabel!
+    @IBOutlet weak var nr: UILabel!
     @IBOutlet weak var märke: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var alkoholhalt: UILabel!
     @IBOutlet weak var pris: UILabel!
     @IBOutlet weak var APK: UILabel!
     
-    
-    
-    
+
+
 }

@@ -27,29 +27,30 @@ class MainScreen: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!){
-        println(segue.identifier)
-        let vc = segue.destinationViewController as Beers
-        switch segue.identifier{
-        case "mörk":
-            vc.titleText = "Mörk Lager"
-            vc.path = NSBundle.mainBundle().pathForResource("mörk", ofType: "xml")!
-        case "ljus":
-            vc.titleText = "Ljus Lager"
-            vc.path = NSBundle.mainBundle().pathForResource("ljus", ofType: "xml")!
-        case "ale":
-            vc.titleText = "Ale"
-            vc.path = NSBundle.mainBundle().pathForResource("ale", ofType: "xml")!
-        case "flera":
-            vc.titleText = "Flera typer"
-            vc.path = NSBundle.mainBundle().pathForResource("flera", ofType: "xml")!
-        case "special":
-            vc.titleText = "Special"
-            vc.path = NSBundle.mainBundle().pathForResource("special", ofType: "xml")!
-        case "porter":
-            vc.titleText = "Porter och Stout"
-            vc.path = NSBundle.mainBundle().pathForResource("porter", ofType: "xml")!
-        default:
-            println("Okänd typ") //Kommer aldrig hända
+        if(segue.identifier != "fav"){
+            let vc = segue.destinationViewController as Beers
+            switch segue.identifier{
+            case "mörk":
+                vc.titleText = "Mörk Lager"
+                vc.path = NSBundle.mainBundle().pathForResource("mörk", ofType: "xml")!
+            case "ljus":
+                vc.titleText = "Ljus Lager"
+                vc.path = NSBundle.mainBundle().pathForResource("ljus", ofType: "xml")!
+            case "ale":
+                vc.titleText = "Ale"
+                vc.path = NSBundle.mainBundle().pathForResource("ale", ofType: "xml")!
+            case "flera":
+                vc.titleText = "Flera typer"
+                vc.path = NSBundle.mainBundle().pathForResource("flera", ofType: "xml")!
+            case "special":
+                vc.titleText = "Special"
+                vc.path = NSBundle.mainBundle().pathForResource("special", ofType: "xml")!
+            case "porter":
+                vc.titleText = "Porter och Stout"
+                vc.path = NSBundle.mainBundle().pathForResource("porter", ofType: "xml")!
+            default:
+                println("Okänd typ") //Kommer aldrig hända
+            }
         }
     }
 

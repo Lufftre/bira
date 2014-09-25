@@ -20,6 +20,9 @@
 		038B6C6D19C356660089B2B1 /* porter.xml in Resources */ = {isa = PBXBuildFile; fileRef = 038B6C6419C356660089B2B1 /* porter.xml */; };
 		038B6C6E19C356660089B2B1 /* poweredbyuntapped.png in Resources */ = {isa = PBXBuildFile; fileRef = 038B6C6519C356660089B2B1 /* poweredbyuntapped.png */; };
 		038B6C6F19C356660089B2B1 /* special.xml in Resources */ = {isa = PBXBuildFile; fileRef = 038B6C6619C356660089B2B1 /* special.xml */; };
+		03D1E25F19D46A5B002D70EB /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D1E25E19D46A5B002D70EB /* Favourites.swift */; };
+		03D1E26119D46F7C002D70EB /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D1E26019D46F7C002D70EB /* FavCell.swift */; };
+		03F020C219D4636D00A5EB92 /* star.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 03F020C119D4636D00A5EB92 /* star.jpg */; };
 		9746BE8019B4929A0049C431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE7F19B4929A0049C431 /* AppDelegate.swift */; };
 		9746BE8219B4929A0049C431 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746BE8119B4929A0049C431 /* MainScreen.swift */; };
 		9746BE8519B4929A0049C431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9746BE8319B4929A0049C431 /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 		038B6C6419C356660089B2B1 /* porter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = porter.xml; sourceTree = "<group>"; };
 		038B6C6519C356660089B2B1 /* poweredbyuntapped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poweredbyuntapped.png; sourceTree = "<group>"; };
 		038B6C6619C356660089B2B1 /* special.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = special.xml; sourceTree = "<group>"; };
+		03D1E25E19D46A5B002D70EB /* Favourites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
+		03D1E26019D46F7C002D70EB /* FavCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
+		03F020C119D4636D00A5EB92 /* star.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = star.jpg; sourceTree = "<group>"; };
 		9746BE7A19B4929A0049C431 /* bira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bira.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9746BE7E19B4929A0049C431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9746BE7F19B4929A0049C431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 		035CB4C319B5EB0C00670789 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				03F020C119D4636D00A5EB92 /* star.jpg */,
 				038B6C5E19C356650089B2B1 /* ale.xml */,
 				038B6C5F19C356660089B2B1 /* bolaget.png */,
 				038B6C6019C356660089B2B1 /* bärs.jpg */,
@@ -124,9 +131,11 @@
 				9746BE7F19B4929A0049C431 /* AppDelegate.swift */,
 				9746BE8119B4929A0049C431 /* MainScreen.swift */,
 				035CB4D219B76CE200670789 /* BeerInfo.swift */,
+				03D1E25E19D46A5B002D70EB /* Favourites.swift */,
 				9746BE8319B4929A0049C431 /* Main.storyboard */,
 				9746BE8619B4929A0049C431 /* Images.xcassets */,
 				9746BE7D19B4929A0049C431 /* Supporting Files */,
+				03D1E26019D46F7C002D70EB /* FavCell.swift */,
 			);
 			path = bira;
 			sourceTree = "<group>";
@@ -243,6 +252,7 @@
 				038B6C6C19C356660089B2B1 /* mörk.xml in Resources */,
 				038B6C6819C356660089B2B1 /* bolaget.png in Resources */,
 				038B6C6B19C356660089B2B1 /* ljus.xml in Resources */,
+				03F020C219D4636D00A5EB92 /* star.jpg in Resources */,
 				038B6C6719C356660089B2B1 /* ale.xml in Resources */,
 				9746BE8519B4929A0049C431 /* Main.storyboard in Resources */,
 				9746BE8719B4929A0049C431 /* Images.xcassets in Resources */,
@@ -265,9 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				035CB46B19B5CD3000670789 /* Beers.swift in Sources */,
+				03D1E25F19D46A5B002D70EB /* Favourites.swift in Sources */,
 				0359E25419B5200400ACEBEE /* XMLParser.swift in Sources */,
 				9746BE8219B4929A0049C431 /* MainScreen.swift in Sources */,
 				9746BE8019B4929A0049C431 /* AppDelegate.swift in Sources */,
+				03D1E26119D46F7C002D70EB /* FavCell.swift in Sources */,
 				035CB46F19B5D9D000670789 /* ItemCell.swift in Sources */,
 				035CB4D319B76CE200670789 /* BeerInfo.swift in Sources */,
 			);

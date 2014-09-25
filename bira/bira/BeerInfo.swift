@@ -28,6 +28,7 @@ class BeerInfo: UIViewController{
     var apk: String = ""
     var hasLoadedImage = false
     var placeholderImgText = ""
+    var beerInfo: Dictionary<String,String>?
 
     @IBOutlet weak var APK: UILabel!
     @IBOutlet weak var pris: UILabel!
@@ -49,6 +50,11 @@ class BeerInfo: UIViewController{
         var url = NSURL(string: hemsida)
         UIApplication.sharedApplication().openURL(url)
     }
+    
+    @IBAction func addToFav(sender: AnyObject) {
+        //Lägg till beerInfo i databas
+    }
+    
     override func viewDidLoad() {
         
         produktsida.setBackgroundImage(systemetIkon, forState: UIControlState())

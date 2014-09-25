@@ -98,6 +98,8 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
                 var formatter = NSNumberFormatter()
                 formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
             
+                cell.beerInfo = dict
+            
                 if(dict["Prisinklmoms"] != nil){
                     
                     let sum = dict["Prisinklmoms"]! as NSString
@@ -215,24 +217,26 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let senderObject = sender as ItemCell
-        let vc = segue.destinationViewController as BeerInfo
-        
-        vc.placeholderImgText = senderObject.ölLabel.text!
-        vc.bild = senderObject.ölbild
-        vc.apk = senderObject.apk
-        vc.smak = senderObject.ölsmak
-        vc.ölmärke = senderObject.ölmärke
-        vc.ölnamn = senderObject.ölnamn
-        vc.procenthalt = senderObject.procenthalt
-        vc.ölvolym = senderObject.ölvolym
-        vc.ölpris = senderObject.ölpris
-        vc.ölbryggeri = senderObject.ölbryggeri
-        vc.ölförpackning = senderObject.ölförpackning
-        vc.ölursprungsland = senderObject.ölursprungsland
-        vc.ölid = senderObject.ölid
-        vc.hemsida = "http://www.systembolaget.se/Sok-dryck/Dryck/?varuNr=" + senderObject.ölid
-        
+        if(segue.identifier != "fav"){
+            let senderObject = sender as ItemCell
+            let vc = segue.destinationViewController as BeerInfo
+            
+            vc.beerInfo = senderObject.beerInfo
+            vc.placeholderImgText = senderObject.ölLabel.text!
+            vc.bild = senderObject.ölbild
+            vc.apk = senderObject.apk
+            vc.smak = senderObject.ölsmak
+            vc.ölmärke = senderObject.ölmärke
+            vc.ölnamn = senderObject.ölnamn
+            vc.procenthalt = senderObject.procenthalt
+            vc.ölvolym = senderObject.ölvolym
+            vc.ölpris = senderObject.ölpris
+            vc.ölbryggeri = senderObject.ölbryggeri
+            vc.ölförpackning = senderObject.ölförpackning
+            vc.ölursprungsland = senderObject.ölursprungsland
+            vc.ölid = senderObject.ölid
+            vc.hemsida = "http://www.systembolaget.se/Sok-dryck/Dryck/?varuNr=" + senderObject.ölid
+        }        
     }
     
     // Size of each cell
