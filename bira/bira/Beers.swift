@@ -48,9 +48,9 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         println(error)
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if(tableView == self.searchDisplayController.searchResultsTableView){
+        if(tableView == self.searchDisplayController?.searchResultsTableView){
             return self.searchResults.count
         }else{
             return self.parser.objects.count
@@ -58,9 +58,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         
     }
     
-    // Här sätts variablerna som motsvarar märket på ölen, dess namn och priset.
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
         
         cell.nr.text = String(indexPath.row+1) + "."
@@ -73,6 +71,23 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
         }
         return cell
     }
+    /*
+    
+    // Här sätts variablerna som motsvarar märket på ölen, dess namn och priset.
+    override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell! {
+        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("ItemCell") as ItemCell
+        
+        cell.nr.text = String(indexPath.row+1) + "."
+        
+        if(tableView == self.searchDisplayController!.searchResultsTableView){
+            setCellVariables(cell, dict: self.searchResults[indexPath.row])
+        }
+        else{
+            setCellVariables(cell, dict: self.parser.objects[indexPath.row])
+        }
+        return cell
+    }*/
         
         func setCellVariables(cell: ItemCell, dict: Dictionary<String,String>){
             
@@ -199,11 +214,11 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
     
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         let senderObject = sender as ItemCell
         let vc = segue.destinationViewController as BeerInfo
         
-        vc.placeholderImgText = senderObject.ölLabel.text
+        vc.placeholderImgText = senderObject.ölLabel.text!
         vc.bild = senderObject.ölbild
         vc.apk = senderObject.apk
         vc.smak = senderObject.ölsmak
@@ -221,7 +236,7 @@ class Beers: UITableViewController, XMLParserDelegate, UISearchBarDelegate, UISe
     }
     
     // Size of each cell
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 140    }
     
     func filterContentForSearchText(searchText: String) {

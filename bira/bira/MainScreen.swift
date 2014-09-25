@@ -26,7 +26,7 @@ class MainScreen: UIViewController {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!){
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!){
         println(segue.identifier)
         let vc = segue.destinationViewController as Beers
         switch segue.identifier{
